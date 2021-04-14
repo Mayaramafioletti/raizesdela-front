@@ -1,0 +1,46 @@
+.fundo{
+  background-color: #1c372c;
+  height: 1vh;
+
+}
+.backgroud{
+  background-color: #1c372c;
+  height: 50vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+.imagem{
+  height: 100px;
+  align-self: flex-start;
+  margin: 25px;
+
+}
+
+#d-color {
+  background-color: rgb(255, 255, 255);
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  height: 60vh;
+  margin: 20vh;
+  padding: 30px;
+  border-radius: 50px;
+  box-shadow: 2px 1px 1em;
+}
+.center {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.btn {
+  color: white;
+  background-color: #1c372c;
+}
+#enviar {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+#l-cadastro {
+  margin-top: 30px;
+}
