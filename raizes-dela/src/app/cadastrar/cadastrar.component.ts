@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Usuario } from '../model/Usuario';
@@ -10,58 +11,81 @@ import Swal from 'sweetalert2';
   styleUrls: ['./cadastrar.component.css']
 })
 export class CadastrarComponent implements OnInit {
+
   user: Usuario = new Usuario
+
   confirmarSenha: string
+  nomeValido: boolean = false;
+  emailValido: boolean = false;
+  senhaValida: boolean = false;
 
-
-  //tipoUsuario: boolean
   constructor(
     private authService: AuthService,
     private router: Router
-    //private alert
   ) { }
+
   ngOnInit() {
-    window.scroll(0,0)
+    window.scroll(0, 0)
   }
+
+  validacao(condicao: boolean, event:any){
+    let valid = false;
+    if(condicao){
+      event.target.classList.remove("is-valid");
+      event.target.classList.add("is-invalid");
+    }else{
+      event.target.classList.remove("is-invalid");
+      event.target.classList.add("is-valid");
+      valid = true;
+    }
+    return valid;
+  }
+
+  validaNome(event: any){
+    this.nomeValido = this.validacao(event.target.value.length < 3, event);
+  }
+
+  validaEmail(event: any){
+    this.emailValido = this.validacao(event.target.value.indexOf('@') == -1 || event.target.value.indexOf('.') == -1, event);
+  }
+
+  validaSenha(event: any){
+    this.senhaValida = this.validacao(event.target.value.length < 6 || event.target.value.length > 20, event)
+  }
+
   confirmSenha(event: any) {
-    this.confirmarSenha = event.target.value
+    this.confirmarSenha = event.target.value;
+    this.senhaValida = this.validacao(this.confirmarSenha != this.user.senha, event)
   }
-  // tipoUser(event: any) {
-  //   this.tipoUser = event.target.value
-  // }
 
-
-  tipoUser(event: any){
+  tipoUser(event: any) {
     this.user.tipoVendedor = event.target.value
   }
 
-
   cadastrar() {
-    //this.user.tipoVendedor = this.tipoUsuario
-    if(this.user.senha != this.confirmarSenha) {
+    if (this.user.senha != this.confirmarSenha) {
       Swal.fire({
         icon: 'warning',
         title: 'Oops...',
-        text: 'As senhas estão incorretas.'
+        text: 'As senhas não estão iguais!'
       })
     } else {
-      this.authService.cadastrar(this.user).subscribe((resp: Usuario)=> {
-        this.user = resp
-        if(this.user == null) {
+      this.authService.cadastrar(this.user).subscribe((resp: Usuario) => {
+        this.user = resp;
+
+        this.router.navigate(['/login'])
+        Swal.fire({
+          icon: 'success',
+          title: 'Boa!',
+          text: 'Usuário cadastrado com sucesso!'
+        })
+      }, erro => {
           Swal.fire({
             icon: 'warning',
-            title: 'Usuário já existe, por favor escolha outro.',
+            title: 'Oops...',
+            text: 'Usuário já existe, por favor escolha outro.',
           })
-        } else {
-          this.router.navigate(['/login'])
-          Swal.fire({
-            icon: 'success',
-            title: 'Boa!',
-            text: 'Usuário cadastrado com sucesso!'
-          })
-        }
       })
     }
   }
 }
-

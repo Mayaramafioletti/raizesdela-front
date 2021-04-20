@@ -4,6 +4,9 @@ import { Produto } from './../model/Produto';
 import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment.prod';
 import Swal from 'sweetalert2';
+import { Usuario } from '../model/Usuario';
+import { Comentario } from '../model/Comentario';
+import { ComentarioService } from '../service/comentario.service';
 
 
 @Component({
@@ -16,13 +19,23 @@ export class ProdutoComponent implements OnInit {
   carrinho: Produto[]
   quant: number
   vParcial: number
+  usuario: Usuario = new Usuario()
+  idUser = environment.id
 
-  constructor(private router: Router, private aRoute: ActivatedRoute, private produtoService: ProdutoService) { }
+  comentario: Comentario = new Comentario()
+  listaComentarios: Comentario[]
+
+  constructor(
+    private router: Router,
+    private aRoute: ActivatedRoute,
+    private produtoService: ProdutoService,
+    private comentarioService: ComentarioService) { }
 
   ngOnInit() {
     window.scroll(0, 0)
     let id = this.aRoute.snapshot.params['id']
     this.findProdById(id)
+    this.findAllComentarios()
     this.quant = 1
     this.vParcial = this.produto.valor
   }
@@ -74,7 +87,8 @@ export class ProdutoComponent implements OnInit {
           descricao: this.produto.descricao,
           usuario: this.produto.usuario,
           quantidade: this.quant,
-          valorParcial: this.vParcial
+          valorParcial: this.vParcial,
+          comentario: this.produto.comentario
         })
       localStorage.setItem('carrinho', JSON.stringify(this.carrinho))
       Swal.fire({
@@ -86,4 +100,44 @@ export class ProdutoComponent implements OnInit {
       this.router.navigate(['/carrinho'])
     }
   }
+
+  comentar(id: number) {
+    if (environment.token == "") {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'É preciso estar logado para comentar'
+      })
+      this.router.navigate(["/login"])
+
+    } else {
+      this.usuario.id = this.idUser;
+      this.comentario.usuario = this.usuario;
+
+      this.produto.id = id;
+      this.comentario.produto = this.produto;
+
+      this.comentarioService.postComent(this.comentario).subscribe((resp: Comentario) => {
+        this.comentario = resp
+        Swal.fire({
+          icon: 'success',
+          title: 'Boa!',
+          text: 'Comentário inserido com sucesso!'
+        });
+        this.comentario = new Comentario();
+        this.router.navigateByUrl('/home', { skipLocationChange: true }).then(() => {
+          this.router.navigate(["/produto", this.produto.id])
+        })
+      }, err => {
+        console.log(this.comentario)
+      })
+    }
+  }
+
+  findAllComentarios() {
+    this.comentarioService.getAllComents().subscribe((resp: Comentario[]) => {
+      this.listaComentarios = resp
+    })
+  }
 }
+

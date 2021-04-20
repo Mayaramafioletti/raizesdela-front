@@ -1,6 +1,6 @@
 @font-face {
   font-family: bastian;
-  src: url(/assets/fontes/bastian_sidney/Bastian\ Sidney.ttf);
+  src: url(../../assets/fontes/Bastian-Sidney/Bastian-Sidney.ttf);
 }
 
 #grup{
@@ -12,7 +12,7 @@
   text-align: center;
   color: #1c372c;
   font-family: bastian;
-  font-size: 70pt;
+  font-size: 100pt;
   margin-bottom: 10px;
 }
 
@@ -26,7 +26,7 @@ h1{
 
     font-size: 50pt;
 }
-button{
+.bb{
     margin: 20px;
     padding: 10px;
 }
@@ -104,3 +104,21 @@ img{
   max-width: 700px;
   max-height: 500px;
 }
+
+#tamanho{
+  height: 30px;
+  margin-right: 10px;
+}
+
+#button-addon2{
+  padding-right: 20px;
+}
+
+.hover{
+  text-decoration: none;
+}
+.hover:hover{
+  background-color: #346350;
+  text-decoration: none;
+}
+
