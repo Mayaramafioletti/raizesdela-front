@@ -1,68 +1,27 @@
-<h2>Status</h2>
-<a href="https://raizes-dela.herokuapp.com/home" target="_blank">✅Pronto✅</a> (aguarde novas atualizações...)
+# RaizesDela
 
-<p align="center">
-<a target="_blank" href="https://raizes-dela.herokuapp.com/home">
-  <img src="https://user-images.githubusercontent.com/72114647/112768649-59b82f80-8ff3-11eb-9453-a14ca99adaec.png" alt="Raízes dela image"/>
-  </a>
-</p>
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.4.
 
-<h4 align="center">Um e-commerce voltado para mulheres que querem promover produtos orgânicos e sustentáveis e dessa forma conseguirem renda para o sustento próprio e familiar.</h4>
+## Development server
 
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-<h2>Projeto</h2>
-Projeto integrador proposto pelo bootcamp Generation Brasil, para finalizar o curso. Nesse repositório é possível ver o código do front-end do e-commerce, para acessar o back-end é só <a href="https://github.com/ddsp-pinheiro/raizesdela-PI/">clicar aqui</a>
+## Code scaffolding
 
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-<h2>Imagens</h2>
+## Build
 
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
+## Running unit tests
 
-<h6>Página home do site</h6>
-<img alt="Tabelas" src="https://user-images.githubusercontent.com/72114647/114491782-96884700-9bed-11eb-8288-fde6be2bd92b.png"/>
-<h6>Visão da produtora sobre os produtos cadastrados</h6>
-<img alt="Tabelas" src="https://user-images.githubusercontent.com/72114647/114491817-abfd7100-9bed-11eb-92a2-b8536a702b12.png"/>
-<h6>Página sobre nós</h6>
-<img alt="Tabelas" src="https://user-images.githubusercontent.com/72114647/114491999-0991bd80-9bee-11eb-8ed4-188091b69719.png"/>
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
+## Running end-to-end tests
 
-<h2>Funcionalidades da aplicação</h2>
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-- [x] Cadastro da produtora
-- [x] Cadastro de cliente
-- [x] Cadastro de categoria (administrador)
-- [x] Cadastro de produtos
-- [x] Login de cliente/produtora
-- [x] Pesquisa de produtos
-- [x] Atualizar usuários/produtos
-- [x] Apagar usuários/produtos
-- [x] Sobre nós
-- [x] Histórias reais
-- [x] Carrinho
+## Further help
 
-<h4>Implementações futuras</h4>
-
-- [ ] Pagamento
-- [ ] Acessibilidade 
-
-
-
-
-<h2>Tecnologias utilizadas</h2>
-<img alt="TypeScript" src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E"/>
-<img alt="TypeScript" src="https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white"/>
-<img alt="TypeScript" src="https://img.shields.io/badge/HTML-239120?style=for-the-badge&logo=html5&logoColor=white"/>
-<img alt="TypeScript" src="https://img.shields.io/badge/typescript%20-%23007ACC.svg?&style=for-the-badge&logo=typescript&logoColor=white"/>
-<img alt="TypeScript" src="https://img.shields.io/badge/CSS-239120?&style=for-the-badge&logo=css3&logoColor=white"/>
-<img alt="TypeScript" src="https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white"/>
-<img alt="Figma" src="https://img.shields.io/badge/figma%20-%23F24E1E.svg?&style=for-the-badge&logo=figma&logoColor=white"/>
-
-
-### Integrantes:
-
-- [Daniele Pinheiro](https://github.com/ddsp-pinheiro/) 
-- [Débora Videira](https://github.com/DebVidMon/) 
-- [Fernando Bednarski](https://github.com/fbedn/) 
-- [Lucas Loiola](https://github.com/lucasloiola/) 
-- [Mayara C. Mafioletti](https://github.com/Mayaramafioletti/)
-- [Paola A. Lisboa](https://github.com/ofpaola/) 
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
